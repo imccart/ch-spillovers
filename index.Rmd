@@ -1,0 +1,30 @@
+---
+title: "Children's Hospitals and Health Care Specialization"
+---
+
+```{css, echo=FALSE}
+.section h2 {
+    padding-top: 94px;
+    margin-top: -71px;
+}
+
+.title {
+    display: none
+}
+```
+
+
+**Ian McCarthy**  
+Department of Economics • Emory University<br>
+Research Associate • National Bureau of Economic Research<br>
+[ianmccarthyecon.com](https://www.ianmccarthyecon.com) • [\@ianhealthecon](https://twitter.com/ianhealthecon)
+
+
+**Mehul Raval**  
+Feinberg School of Medicine • Northwestern University<br>
+[Profile](https://www.feinberg.northwestern.edu/faculty-profiles/az/profile.html?xid=22586)
+
+
+---
+
+Welcome! This is a small site designed to house materials for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals. Use the top menu to navigate the site, and you can find all of the source code at the GitHub repository, [here](https://github.com/imccart/ch-spillovers).

@@ -1,0 +1,16 @@
+
+Summary Statistics for NCH
+============================================
+Statistic             N     Mean    St. Dev.
+--------------------------------------------
+Bed Size (100s)     3,806   2.66      1.90  
+Nonprofit           3,806   0.77      0.42  
+Teaching            3,806   0.09      0.29  
+System              3,806   0.68      0.47  
+Nurse FTE           3,806  508.20    458.32 
+Physician FTE       3,806   35.72    121.00 
+Total Discharges    3,806 12,862.50 9,802.02
+Medicare Discharges 3,806 4,197.07  3,094.38
+Medicaid Discharges 3,806 1,596.18  1,922.89
+Total HCCI Patients 3,806   2.49      3.87  
+--------------------------------------------

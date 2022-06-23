@@ -1,0 +1,24 @@
+
+Summary Statistics for Tier C Hospitals
+=======================================================
+Statistic               N     Mean     Min      Max    
+-------------------------------------------------------
+Adjusted Price        3,254 10,018.62 670.22 36,425.87 
+Adjusted Complication 3,254   -0.11   -0.26     0.62   
+Adjusted Readmission  3,254   0.26     0.09     1.11   
+Average Price         7,152 9,638.47  190.48 202,653.50
+Bed Size              7,152   2.67     0.08    25.74   
+Nonprofit             7,152   0.75      0        1     
+Teaching              7,152   0.08      0        1     
+System                7,152   0.66      0        1     
+Nurse FTE             7,152  495.26     5      5,875   
+Physician FTE         7,152   34.23     0      2,405   
+Total Discharges      7,152 12,344.62  209    155,781  
+Medicare Discharges   7,152 4,070.22    9      21,704  
+Medicaid Discharges   7,140 1,575.88   1.00  27,013.00 
+Total HCCI Patients   7,152   23.69     1       738    
+Any Complication      7,152   0.04     0.00     1.00   
+30-day Readmission    7,152   0.09     0.00     1.00   
+60-day Readmission    7,152   0.12     0.00     1.00   
+90-day Readmission    7,152   0.13     0.00     1.00   
+-------------------------------------------------------

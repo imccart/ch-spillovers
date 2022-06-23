@@ -1,0 +1,64 @@
+
+	Kruskal-Wallis rank sum test
+
+data:  hcci_price by CH_TierAlt
+Kruskal-Wallis chi-squared = 2081.4, df = 2, p-value < 2.2e-16
+
+
+	Pairwise comparisons using Wilcoxon rank sum test 
+
+data:  test.dat$hcci_price and test.dat$CH_TierAlt 
+
+       NCH     Tier A 
+Tier A < 2e-16 -      
+Tier B < 2e-16 2.6e-16
+
+P value adjustment method: BH 
+
+	Welch Two Sample t-test
+
+data:  test.dat$hcci_price[which(test.dat$CH_TierAlt == "Tier A")] and test.dat$hcci_price[which(test.dat$CH_TierAlt == "NCH")]
+t = 29.887, df = 20559, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 4889.795 5576.188
+sample estimates:
+mean of x mean of y 
+14439.777  9206.785 
+
+
+	Welch Two Sample t-test
+
+data:  test.dat$hcci_price[which(test.dat$CH_TierAlt == "Tier B")] and test.dat$hcci_price[which(test.dat$CH_TierAlt == "NCH")]
+t = 19.6, df = 23125, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2463.314 3010.741
+sample estimates:
+mean of x mean of y 
+11943.813  9206.785 
+
+
+	Welch Two Sample t-test
+
+data:  test.dat$hcci_price[which(test.dat$CH_TierAlt == "Tier A")] and test.dat$hcci_price[which(test.dat$CH_TierAlt == "Tier B")]
+t = 13.247, df = 22394, p-value < 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 2126.651 2865.276
+sample estimates:
+mean of x mean of y 
+ 14439.78  11943.81 
+
+
+	Pearson's Chi-squared test
+
+data:  table(test.dat$CH_TierAlt, test.dat$complication)
+X-squared = 5.4424, df = 2, p-value = 0.06579
+
+
+	Pearson's Chi-squared test
+
+data:  table(test.dat$CH_TierAlt, test.dat$readmission)
+X-squared = 64.451, df = 2, p-value = 1.011e-14
+

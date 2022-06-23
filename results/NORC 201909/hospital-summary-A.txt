@@ -1,0 +1,24 @@
+
+Summary Statistics for Tier A Hospitals
+=======================================================
+Statistic              N    Mean      Min       Max    
+-------------------------------------------------------
+Adjusted Price        181 15,580.15 2,429.49 47,604.59 
+Adjusted Complication 181   -0.10    -0.19     -0.002  
+Adjusted Readmission  181   0.38      0.04      0.91   
+Average Price         226 20,023.67  707.15  409,335.90
+Bed Size              226   2.82      0.42      5.89   
+Nonprofit             226   0.98       0         1     
+Teaching              226   0.44       0         1     
+System                226   0.26       0         1     
+Nurse FTE             226  934.31      52      2,620   
+Physician FTE         226  122.48      0       1,198   
+Total Discharges      226 11,263.07   172      22,787  
+Medicare Discharges   216   80.68     1.00    4,626.00 
+Medicaid Discharges   226 3,817.15     63      9,824   
+Total HCCI Patients   226   46.36      1        382    
+Any Complication      226   0.02       0         0     
+30-day Readmission    226   0.25       0         1     
+60-day Readmission    226   0.34      0.00      1.00   
+90-day Readmission    226   0.38      0.00      1.00   
+-------------------------------------------------------

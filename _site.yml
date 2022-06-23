@@ -1,0 +1,24 @@
+name: "ch-spillovers"
+output_dir: docs
+exclude: ["data"]
+navbar:
+  title: "Health Care Specialization and Children's Hospitals"
+  left:
+    - text: ""
+      icon: fa-home
+      href: index.html
+    - text: "Data"
+      href: data.html
+    - text: "Analysis"
+      href: analysis.html
+    - text: "Papers"
+      href: papers.html
+    - text: "Presentations"
+      href: present.html
+    - text: "Appendix"
+      href: appendix.html
+output:
+  html_document:
+    theme: flatly
+    include:
+      after_body: html/footer.html
