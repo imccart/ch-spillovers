@@ -15,8 +15,6 @@ navbar:
       href: papers.html
     - text: "Presentations"
       href: present.html
-    - text: "Appendix"
-      href: appendix.html
 output:
   html_document:
     theme: flatly
