@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Price Spillovers from Multi-product Firms:</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ian McCarthy &amp; Mehul Raval" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#E68080"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Price Spillovers from Multi-product Firms:
+]
+.subtitle[
+## The Case of Specialty Hospitals
+]
+.author[
+### Ian McCarthy &amp; Mehul Raval
+]
+.date[
+### ASHEcon, Wednesday, June 29, 2022
+]
+
+---
+
+
+&lt;!-- Adjust some CSS code for font size, maintain R code font size --&gt;
+&lt;style type="text/css"&gt;
+.remark-slide-content {
+    font-size: 30px;
+    padding: 1em 2em 1em 2em;    
+}
+.remark-code, .remark-inline-code { 
+    font-size: 20px;
+}
+&lt;/style&gt;
+
+
+&lt;!-- Set R options for how code chunks are displayed and load packages --&gt;
+
+
+
+
+
+
+
+
+# What is a specialty hospital?
+
+&gt; "tend to focus on patients with specific medical conditions or who need surgical procedures"
+&gt;&lt;footer&gt;-- Government Accountability Office, 2003&lt;/footer&gt;
+
+.pull-left[
+**Medical conditions**
+- Rehabilitation centers
+- Cancer centers
+- Long-term care (not SNFs)
+- *Children's hospitals*
+]
+
+.pull-right[
+**Surgical procedures**
+- Cardiac hospitals
+- Orthopedic hospitals
+- Surgery centers
+]
+
+---
+# Growth of Specialty Hospitals
+
+.center[
+&lt;img src="ashecon-202206_files/figure-html/unnamed-chunk-2-1.png" style="display: block; margin: auto;" /&gt;
+]
+
+Data from American Hospital Association Annual Surveys
+
+---
+# Concerns about specialty hospitals
+- 04-2003, Initial GAO study
+- 10-2003, Supplemental GAO study on relationship with CON laws
+- 03-2004, Moratorium on self-referrals for physician-owned specialty hospitals (MMA)
+- 05-2005, Report on growth of physician-owned specialty hospitals (GAO, HHS, MedPAC)
+- 04-2006, GAO report and MedPAC testimony on effects of physician-owned specialty hospitals on general hospitals
+- 08-2006, Final HHS report to Congress
+
+---
+# Concerns (at the time) related to:
+
+- "Cream-skimming" (probably)
+- Self-referrals (small, if at all)
+- Foreclosure (not really)
+
+---
+# New concerns
+
+&gt; "Patients receiving care from specialty hospitals faced far higher costs, as measured by allowed amounts, when compared to the same services provided at non-specialty hospitals. In general, this wide variation in costs makes care and coverage more expensive for consumers, especially for services that did not always need to be performed at the higher-cost specialty hospital.
+&gt;&lt;footer&gt;-- AHIP Report on Specialty Hospitals, 2017&lt;/footer&gt;
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+Spoiler: We see the same thing in our data
+
+---
+# This paper
+
+- **Context:** Set 13 routine pediatric procedures at both Children's Hospitals (standalone or designated unit within larger structure) and non-Children's Hospitals
+- **Question:** How are CH able to negotiate higher commercial payments relative to NCH even for routine procedures?
+
+---
+class: inverse, center, middle
+name: ch
+
+# Understanding Children's Hospitals
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=1055px&gt;&lt;/html&gt;
+
+---
+# 1. Growth
+
+.pull-left[
+ ![](images/results/figures/f1-hospital-counts.png)
+]
+
+.pull-right[
+![](images/results/figures/f2-shares-mkt.png)
+]
+
+---
+# 2. Higher prices without higher quality
+
+.pull-left[
+&lt;br&gt;
+&lt;br&gt;
+
+| Procedure | CH  | NCH  | Difference |
+| :-------- | --: | ---: | -----------------: |
+| Ear Tubes | 3,899 | 3,045 | 28% |
+| Tonsillectomy | 5,474 | 4,218 | 30% | 
+| Appendectomy | 14,033 | 10,733 | 31% |
+| Overall | 6,280 | 4,874 | 29% |
+]
+
+.pull-right[
+![](images/results/figures/f3-prelim-compare.png)
+]
+
+---
+# Takeaways
+
+1. More people relying on CH for routine procedures
+2. CH much more expensive than NCH (unexplained by quality or patient mix)
+
+---
+# Why?
+
+- Multi-product nature of the firm:
+  - CH are **really** good at some very difficult procedures
+  - Generates spillover effects onto other services
+- Potential mechanisms:
+  - Demand effect where CH are perceived as better than NCH (most likely)
+  - All-or-nothing bargaining effect where CH leverage market exclusivity for one service in negotiations for other services (not really)
+
+
+---
+class: inverse, center, middle
+name: demand
+
+# Demand Effect
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=1055px&gt;&lt;/html&gt;
+
+
+---
+# Idea
+
+- Common in marketing as "umbrella branding"
+- Garthwaite (2014): Increased author sales from Oprah endorsement of a different book by the same author
+
+
+---
+# Identification
+Exploit changes in competition from same-type (CH/CH or NCH/NCH) versus other-type (CH/NCH or NCH/CH) hospitals
+
+- New CH or NCH structure
+- NCH expands into designated pediatric unit (conversion to CH)
+- CH or NCH added to network of available commercial insurers
+
+--
+
+&lt;br&gt;
+&lt;br&gt;
+**Methods note:** Markets constructed using community detection (Everson, 2019), which yields 363 distinct hospital markets for pediatric care
+
+---
+# CH events over time
+
+.center[
+ ![](images/results/figures/f4-panelview-ch-entry.png)
+]
+
+---
+# Estimand and estimator
+
+`$$ATT_{\tau} = \text{E} [ p_{i\tau}^{1} - p_{i\tau}^{0} | \text{Treated}, t=\tau ]$$`
+1. Residualize allowed amounts: `$$p_{i(jhm)t} = \beta_{x} x_{it} + \beta_{z} z_{ht} + \beta_{w} w_{jt} + \beta_{g} g_{mt} + \gamma_{j} + \gamma_{h} + \gamma_{t} + \varepsilon_{i(jhm)t}$$`
+
+2. Estimate `\(ATT\)` using Callaway and Sant'anna (2020)
+
+
+---
+# Results of CH entry
+
+.center[
+ ![](images/results/figures/f6-did-event-ch.png)
+]
+
+---
+# Results of NCH entry
+
+.center[
+ ![](images/results/figures/f6-did-event-nch.png)
+]
+
+---
+class: inverse, center, middle
+name: allornothing
+
+# "All-or-nothing" Bargaining
+
+&lt;html&gt;&lt;div style='float:left'&gt;&lt;/div&gt;&lt;hr color='#EB811B' size=1px width=1055px&gt;&lt;/html&gt;
+
+
+---
+# Idea
+
+- Hospitals leverage market power for highly specialized services in negotiation for routine services
+
+---
+# Identification
+
+Exploit expansion of hospitals into highly specialized procedures for which existing CH have monopoly
+
+1. Identify CH with monopoly power for ECMO, CHS, brain surgery, or transplant
+2. Identify expansions into these service lines (first observed claims from new hospital int he data)
+
+
+---
+# Expansion over time
+
+.center[
+ ![](images/results/figures/f4-panel-view-expansion.png)
+]
+
+---
+# Results of expansion on prices
+
+.center[
+ ![](images/results/figures/f6-did-event-spec.png)
+]
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

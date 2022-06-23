@@ -1,0 +1,32 @@
+
+Regression Results
+==================================================================
+                            Log Negotiated Hospital Price         
+                       (1)         (2)         (3)         (4)    
+------------------------------------------------------------------
+Tier A               0.36**       0.26        0.25        0.27    
+                     (0.18)      (0.25)      (0.26)      (0.26)   
+                                                                  
+Tier B                0.22        0.20        0.20        0.20    
+                     (0.14)      (0.15)      (0.14)      (0.14)   
+                                                                  
+Gender               0.08***     0.07***     0.07***     0.07***  
+                     (0.02)      (0.02)      (0.02)      (0.02)   
+                                                                  
+Pediatric CCC        -0.29*      -0.30*       -0.23               
+                     (0.16)      (0.17)      (0.15)               
+                                                                  
+30-day Readmission                          -0.71***    -0.72***  
+                                             (0.20)      (0.20)   
+                                                                  
+------------------------------------------------------------------
+Zip FE                 Yes         Yes         Yes         Yes    
+Year FE                Yes         Yes         Yes         Yes    
+Surgery FE             Yes         Yes         Yes         Yes    
+Hospital Controls      No          Yes         Yes         Yes    
+County Controls        No          Yes         Yes         Yes    
+Observations         12,037      10,642      10,295      10,162   
+R2                    0.47        0.47        0.49        0.49    
+==================================================================
+Note:                                  *p<0.1; **p<0.05; ***p<0.01
+                      Robust standard errors clustered by hospital

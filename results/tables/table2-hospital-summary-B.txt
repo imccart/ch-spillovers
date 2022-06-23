@@ -1,0 +1,16 @@
+
+Summary Statistics for Tier B CH
+=============================================
+Statistic             N     Mean    St. Dev. 
+---------------------------------------------
+Bed Size (100s)     1,079   6.47      3.29   
+Nonprofit           1,079   0.72      0.45   
+Teaching            1,079   0.56      0.50   
+System              1,079   0.71      0.45   
+Nurse FTE           1,079 1,470.30   868.68  
+Physician FTE       1,079  156.84    308.73  
+Total Discharges    1,073 30,863.26 16,010.18
+Medicare Discharges 1,073 8,222.87  4,853.38 
+Medicaid Discharges 1,073 4,814.67  3,833.88 
+Total HCCI Patients 1,079   69.75     85.53  
+---------------------------------------------
