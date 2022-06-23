@@ -27,4 +27,4 @@ Feinberg School of Medicine • Northwestern University<br>
 
 ---
 
-Welcome! This is a small site designed to house materials for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals. Use the top menu to navigate the site, and you can find all of the source code at the GitHub repository, [here](https://github.com/imccart/ch-spillovers).
+Welcome! This is a small site designed to house materials for our project examining the role of specialization in health care, specifically with regard to Children's Hospitals. Use the top menu to navigate the site, and you can find all of the source code at the GitHub repository, [here](https://github.com/imccart/ch-spillovers). This project was generously funded by the Agency for Healthcare Research and Quality, R01HS024712.
