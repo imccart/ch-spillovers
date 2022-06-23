@@ -1,0 +1,19 @@
+
+Patient-level Summary Statistics for NCH
+==========================================
+Statistic            N     Mean   St. Dev.
+------------------------------------------
+Average Price      1,345 6,912.30 9,801.92
+Inpatient          1,345   0.66     0.47  
+Any Complication   1,345   0.01     0.09  
+30-Day Readmission 1,345   0.01     0.11  
+60-Day Readmission 1,345   0.02     0.13  
+90-Day Readmission 1,345   0.02     0.15  
+Pediatric CCC      1,345   0.02     0.12  
+Female             1,345   0.44     0.50  
+Cost Sharing       1,345  876.42  1,233.79
+EPO                1,345   0.05     0.23  
+HMO                1,345   0.09     0.28  
+PPO                1,345   0.14     0.35  
+POS                1,345   0.72     0.45  
+------------------------------------------

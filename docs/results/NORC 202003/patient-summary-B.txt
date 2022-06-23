@@ -1,0 +1,12 @@
+
+Patient-level Summary Statistics for Tier B CH
+============================================
+Statistic            N     Mean    St. Dev. 
+--------------------------------------------
+Average Price      9,072 13,091.09 11,808.51
+Any Complication   9,072   0.04      0.20   
+30-Day Readmission 9,072   0.04      0.20   
+60-Day Readmission 9,072   0.05      0.22   
+90-Day Readmission 9,072   0.06      0.23   
+Pediatric CCC      9,072   0.24      0.43   
+--------------------------------------------

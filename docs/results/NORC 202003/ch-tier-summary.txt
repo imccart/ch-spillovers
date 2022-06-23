@@ -1,0 +1,16 @@
+
+================================
+Surgery       NCH  Tier A Tier B
+--------------------------------
+AntiReflux    113   266    355  
+Appendectomy 6,769 4,139  4,519 
+Circumcision  336   199    217  
+Double        158   303    265  
+Humerus       694   800   1,038 
+Orchiopexy    90     88    106  
+Spine         710  1,843  1,268 
+Tonsils       438   802    773  
+Tympanostomy  142   544    384  
+UmbHernia     34     82     69  
+Total        9,484 9,066  8,994 
+--------------------------------

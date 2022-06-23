@@ -1,0 +1,35 @@
+
+Regression Results
+==================================================================
+                            Log Negotiated Hospital Price         
+                       (1)          (2)         (3)        (4)    
+------------------------------------------------------------------
+Tier A                -0.27        -0.01       -0.01      -0.01   
+                      (0.31)      (0.42)      (0.42)      (0.42)  
+                                                                  
+Tier B                -0.08        0.12        0.12        0.12   
+                      (0.13)      (0.19)      (0.19)      (0.19)  
+                                                                  
+Gender                 0.02        0.02        0.02        0.02   
+                      (0.02)      (0.02)      (0.02)      (0.02)  
+                                                                  
+Pediatric CCC          0.16       0.23**      0.23**      0.24**  
+                      (0.11)      (0.09)      (0.09)      (0.09)  
+                                                                  
+Complications                                                     
+                                              (0.00)              
+                                                                  
+30-day Readmission                                        -0.12   
+                                                          (0.13)  
+                                                                  
+------------------------------------------------------------------
+Zip FE                 Yes          Yes         Yes        Yes    
+Year FE                Yes          Yes         Yes        Yes    
+Surgery FE             Yes          Yes         Yes        Yes    
+Hospital Controls       No          Yes         Yes        Yes    
+County Controls         No          Yes         Yes        Yes    
+Observations          9,292        7,926       7,926      7,926   
+R2                     0.75        0.75        0.75        0.75   
+==================================================================
+Note:                                  *p<0.1; **p<0.05; ***p<0.01
+                      Robust standard errors clustered by hospital

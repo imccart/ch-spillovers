@@ -1,0 +1,18 @@
+
+====================================================
+Surgery      Tier A Tier B Tier C  Tier D Unassigned
+----------------------------------------------------
+AntiReflux    275    415     116    n/a      17    
+Appendectomy 4,137  4,531   5,693   793      372    
+Circumcision 1,525  42,864 156,324 18,230   5,237   
+Double        n/a
+Humerus       800   1,039    591     38       68    
+IngHernia     n/a
+Orchiopexy     93    112     88     n/a      n/a     
+Spine        1,844  1,268    460     46      211    
+Strabismus    n/a    
+Tonsils       799    770     364     29       52    
+Tympanostomy  548    384     95      n/a      48    
+UmbHernia      86     94     38      0       n/a     
+Total        10,427 51,764 163,899 19,150   6,049   
+----------------------------------------------------

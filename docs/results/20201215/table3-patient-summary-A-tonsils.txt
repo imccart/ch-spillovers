@@ -1,0 +1,19 @@
+
+Patient-level Summary Statistics for Tier A CH
+============================================
+Statistic            N     Mean    St. Dev. 
+--------------------------------------------
+Average Price      1,077 11,715.36 15,342.97
+Inpatient          1,077   0.83      0.38   
+Any Complication   1,077   0.03      0.18   
+30-Day Readmission 1,077   0.03      0.18   
+60-Day Readmission 1,077   0.04      0.20   
+90-Day Readmission 1,077   0.05      0.21   
+Pediatric CCC      1,077   0.21      0.41   
+Female             1,077   0.42      0.49   
+Cost Sharing       1,077  879.73   1,075.28 
+EPO                1,077   0.06      0.23   
+HMO                1,077   0.13      0.33   
+PPO                1,077   0.10      0.30   
+POS                1,077   0.71      0.45   
+--------------------------------------------
