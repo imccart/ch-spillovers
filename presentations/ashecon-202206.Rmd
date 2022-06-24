@@ -308,3 +308,24 @@ Exploit expansion of hospitals into highly specialized procedures for which exis
 .center[
  ![](images/results/figures/f6-did-event-spec.png)
 ]
+
+
+---
+class: inverse, center, middle
+name: summary
+
+# Takeaways
+
+<html><div style='float:left'></div><hr color='#EB811B' size=1px width=1055px></html>
+
+---
+# Empirical findings
+
+1. Much higher prices for routine procedures at specialty hospitals relative to non-specialty hospitals
+2. Most likely due to demand effect (non-clinical quality or perceived clinical quality) rather than artifact of all-or-nothing bargaining
+
+---
+# Policy implications
+
+1. **Information and transparency:** Patients should understand quality at more granular level than hospital (must be procedure specific)
+2. **Competition policy:** In the absence of transparent and accessible information, specialization is a way to avoid competition.
