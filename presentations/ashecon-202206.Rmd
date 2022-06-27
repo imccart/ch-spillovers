@@ -72,58 +72,6 @@ xaringanExtra::use_scribble(rgb(0.9, 0.5, 0.5))
 ```
 
 
-```{r include=FALSE}
-spec.hosp <- tribble(
-  ~"Type", ~"Yr2008", ~"Yr2009", ~"Yr2010", ~"Yr2011",~"Yr2012",~"Yr2013",~"Yr2014",~"Yr2015",
-  "Cardiac", 44, 47, 46, 51, 56, 51, 68, 61,
-  "Orthopedic", 48, 54, 59, 75, 80, 74, 90, 85,
-  "Surgery Center", 62, 68, 69, 84, 82, 82, 100, 86
-)
-```
-
-# What is a specialty hospital?
-
-> "tend to focus on patients with specific medical conditions or who need surgical procedures"
->`r tufte::quote_footer('-- Government Accountability Office, 2003')`
-
-.pull-left[
-**Medical conditions**
-- Rehabilitation centers
-- Cancer centers
-- Long-term care (not SNFs)
-- *Children's hospitals*
-]
-
-.pull-right[
-**Surgical procedures**
-- Cardiac hospitals
-- Orthopedic hospitals
-- Surgery centers
-]
-
----
-# Growth of Specialty Hospitals
-
-.center[
-```{r echo=FALSE}
-spec <- pivot_longer(spec.hosp,
-                           cols = starts_with("Yr"),
-                           names_to = "Year",
-                           names_prefix = "Yr",
-                           values_to="Count")
-ggplot(spec, aes(Year, Count, group=Type)) +
-  geom_line(aes(linetype=Type)) +
-  geom_text(data=spec %>% filter(Year==2009),
-    aes(label=Type, x=Year, y=Count+1)) +
-  theme_bw() +
-  ylab("Count of Hospitals") + xlab("Year") +
-  guides(linetype="none")
-```
-]
-
-Data from American Hospital Association Annual Surveys
-
----
 # Concerns about specialty hospitals
 - 04-2003, Initial GAO study
 - 10-2003, Supplemental GAO study on relationship with CON laws
@@ -154,8 +102,14 @@ Spoiler: We see the same thing in our data
 ---
 # This paper
 
-- **Context:** Set 13 routine pediatric procedures at both Children's Hospitals (standalone or designated unit within larger structure) and non-Children's Hospitals
-- **Question:** How are CH able to negotiate higher commercial payments relative to NCH even for routine procedures?
+- **Question:** How are specialty hospitals able to negotiate higher commercial payments relative to non-specialty hospitales, even for routine procedures?
+- **Context:** Set 13 routine pediatric procedures at both Children's Hospitals (CH) non-Children's Hospitals (NCH)
+
+--
+<br>
+<br>
+
+CH is standalone or designated unit within larger structure
 
 ---
 class: inverse, center, middle
