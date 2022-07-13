@@ -7,7 +7,7 @@ Our main data for this project come from the Health Care Cost Institute (HCCI, v
 ## Local Data Merged to HCCI
 Due to restrictions on identifying hospital information, we first created a hospital-level dataset which we provided to HCCI for encryption. The encrypted version of these data was then made available to use in the secure remote desktop environment, which we could merge to the HCCI data based on the encrypted ID. 
 
-The [Hospital Data](data-code/local-aha-merge/_Hospital_Data.do] Stata file calls all subsequent code files and creates our final hospital-level dataset. Individual code files called from this main file include:
+The [Hospital Data](data-code/local-aha-merge/_Hospital_Data.do) Stata file calls all subsequent code files and creates our final hospital-level dataset. Individual code files called from this main file include:
 
 1. [AHA Data](data-code/local-aha-merge/1_AHA_Data.do) Hospital information from the AHA Annual Surveys.
 
