@@ -2,4 +2,38 @@
 title: "Data"
 ---
 
-Our data for this project come from the Health Care Cost Institute (version 1). 
+Our main data for this project come from the Health Care Cost Institute (HCCI, version 1.0), and we supplement these data with information about hospitals and hospital systems from the American Hospital Association (AHA) annual surveys, the Hospital Cost Report Information System (HCRIS), and market-level data from the American Community Survey (ACS). Our main data and relevant code files are discussed in more detail in the subsequent subsection.
+
+## Local Data Merged to HCCI
+Due to restrictions on identifying hospital information, we first created a hospital-level dataset which we provided to HCCI for encryption. The encrypted version of these data was then made available to use in the secure remote desktop environment, which we could merge to the HCCI data based on the encrypted ID. 
+
+The [Hospital Data](data-code/local-aha-merge/_Hospital_Data.do] Stata file calls all subsequent code files and creates our final hospital-level dataset. Individual code files called from this main file include:
+
+1. [AHA Data](data-code/local-aha-merge/1_AHA_Data.do) Hospital information from the AHA Annual Surveys.
+
+2. [HCRIS Data](data-code/local-aha-merge/2_HCRIS_Data.do) Hospital information from the hospital cost reports. For more details on the creation of the underlying cost report data, please see the GitHub repo [here](https://github.com/imccart/HCRIS).
+
+3. [Inpatient PPS Data](data-code/local-aha-merge/3_Inpatient_PPS_Data.do) Hospital information from the inpatient prospective payment system final rule files. This information is ultimately not used in the analysis.
+
+4. [ACS Data](data-code/local-aha-merge/4_ACS_Data.do) County-level information (education, income, employment) from the American Community Survey.
+
+5. [CH Tiers](data-code/local-aha-merge/5_CH_Tiers.do) This calls a prior analysis, "AHA_tiers_merge.csv," in which we first delineated tiers of Children's Hospitals. This paper can be found [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6986900/).
+
+6. [AMA Data](data-code/local-aha-merge/6_AMA_Data.do) This file incorporates purchased data on commercial insurance market shares at the MSA level. This information was never used in our analysis.
+
+
+## Extracting HCCI Claims
+The [HCCI data](https://healthcostinstitute.org/) include millions of commercial insurance claims and have become the gold-standard for hospital pricing analysis. HCCI is transitioning to Version 2.0 of the data, which consists of a different set of private insurance contributors than we had available to use in Version 1.0. Unfortunately, access to Version 1.0 expires for all researchers on September 30, 2022, but the code used for our analysis would also apply to Version 2.0. 
+
+1. [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas). This code file pulls all of the relevant pediatric HCCI claims from Vertica, which is the data management software used at the time.
+
+2. [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This code file creates inpatient admission data that we subsequently use to calculate the share of pediatric procedures per hospital. The data created from this file include all admissions, regardless of procedure.
+
+
+
+## Build analytic data
+We follow several steps to clean the resulting HCCI claims data and merge additional variables, as describe below:
+
+1. [Final Data](data-code/stata-build/FinalData.do): Create our final inpatient and outpatient claims files, which we subsequently import into R for analysis.
+
+2. [Inpatient Data](data-code/stata-build/_AdmitsIP.do): 

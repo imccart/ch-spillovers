@@ -283,8 +283,84 @@ $(document).ready(function () {
 </div>
 
 
-<p>Our data for this project come from the Health Care Cost Institute
-(version 1).</p>
+<p>Our main data for this project come from the Health Care Cost
+Institute (HCCI, version 1.0), and we supplement these data with
+information about hospitals and hospital systems from the American
+Hospital Association (AHA) annual surveys, the Hospital Cost Report
+Information System (HCRIS), and market-level data from the American
+Community Survey (ACS). Our main data and relevant code files are
+discussed in more detail in the subsequent subsection.</p>
+<div id="local-data-merged-to-hcci" class="section level2">
+<h2>Local Data Merged to HCCI</h2>
+<p>Due to restrictions on identifying hospital information, we first
+created a hospital-level dataset which we provided to HCCI for
+encryption. The encrypted version of these data was then made available
+to use in the secure remote desktop environment, which we could merge to
+the HCCI data based on the encrypted ID.</p>
+<p>The [Hospital Data](data-code/local-aha-merge/_Hospital_Data.do]
+Stata file calls all subsequent code files and creates our final
+hospital-level dataset. Individual code files called from this main file
+include:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="data-code/local-aha-merge/1_AHA_Data.do">AHA Data</a>
+Hospital information from the AHA Annual Surveys.</p></li>
+<li><p><a href="data-code/local-aha-merge/2_HCRIS_Data.do">HCRIS
+Data</a> Hospital information from the hospital cost reports. For more
+details on the creation of the underlying cost report data, please see
+the GitHub repo <a
+href="https://github.com/imccart/HCRIS">here</a>.</p></li>
+<li><p><a
+href="data-code/local-aha-merge/3_Inpatient_PPS_Data.do">Inpatient PPS
+Data</a> Hospital information from the inpatient prospective payment
+system final rule files. This information is ultimately not used in the
+analysis.</p></li>
+<li><p><a href="data-code/local-aha-merge/4_ACS_Data.do">ACS Data</a>
+County-level information (education, income, employment) from the
+American Community Survey.</p></li>
+<li><p><a href="data-code/local-aha-merge/5_CH_Tiers.do">CH Tiers</a>
+This calls a prior analysis, “AHA_tiers_merge.csv,” in which we first
+delineated tiers of Children’s Hospitals. This paper can be found <a
+href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6986900/">here</a>.</p></li>
+<li><p><a href="data-code/local-aha-merge/6_AMA_Data.do">AMA Data</a>
+This file incorporates purchased data on commercial insurance market
+shares at the MSA level. This information was never used in our
+analysis.</p></li>
+</ol>
+</div>
+<div id="extracting-hcci-claims" class="section level2">
+<h2>Extracting HCCI Claims</h2>
+<p>The <a href="https://healthcostinstitute.org/">HCCI data</a> include
+millions of commercial insurance claims and have become the
+gold-standard for hospital pricing analysis. HCCI is transitioning to
+Version 2.0 of the data, which consists of a different set of private
+insurance contributors than we had available to use in Version 1.0.
+Unfortunately, access to Version 1.0 expires for all researchers on
+September 30, 2022, but the code used for our analysis would also apply
+to Version 2.0.</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="data-code/sas-build/_HCCI_01.sas">HCCI Data Part 1</a>.
+This code file pulls all of the relevant pediatric HCCI claims from
+Vertica, which is the data management software used at the
+time.</p></li>
+<li><p><a href="data-code/sas-build/_HCCI_02.sas">HCCI Data Part 2</a>.
+This code file creates inpatient admission data that we subsequently use
+to calculate the share of pediatric procedures per hospital. The data
+created from this file include all admissions, regardless of
+procedure.</p></li>
+</ol>
+</div>
+<div id="build-analytic-data" class="section level2">
+<h2>Build analytic data</h2>
+<p>We follow several steps to clean the resulting HCCI claims data and
+merge additional variables, as describe below:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="data-code/stata-build/FinalData.do">Final Data</a>:
+Create our final inpatient and outpatient claims files, which we
+subsequently import into R for analysis.</p></li>
+<li><p><a href="data-code/stata-build/_AdmitsIP.do">Inpatient
+Data</a>:</p></li>
+</ol>
+</div>
 
 <p class="footer" style="margin-top: 4em; font-size: 0.7em;">Copyright &copy; 2021 <a href="https://www.ianmccarthyecon.com/">Ian McCarthy</a>. Licensed under a <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.</p>
 
