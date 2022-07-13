@@ -1,4 +1,6 @@
 name: "ch-spillovers"
+include:
+  - "_*.do"
 output_dir: docs
 exclude: ["data"]
 navbar:
