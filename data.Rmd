@@ -25,15 +25,43 @@ The [Hospital Data](data-code/local-aha-merge/_Hospital_Data.do] Stata file call
 ## Extracting HCCI Claims
 The [HCCI data](https://healthcostinstitute.org/) include millions of commercial insurance claims and have become the gold-standard for hospital pricing analysis. HCCI is transitioning to Version 2.0 of the data, which consists of a different set of private insurance contributors than we had available to use in Version 1.0. Unfortunately, access to Version 1.0 expires for all researchers on September 30, 2022, but the code used for our analysis would also apply to Version 2.0. 
 
-1. [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas). This code file pulls all of the relevant pediatric HCCI claims from Vertica, which is the data management software used at the time.
+1. [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas). This code file pulls all of the relevant pediatric HCCI claims from Vertica, which is the data management software used at the time. This file exports "ipclaims" and "opclaims" datasets for each year.
 
-2. [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This code file creates inpatient admission data that we subsequently use to calculate the share of pediatric procedures per hospital. The data created from this file include all admissions, regardless of procedure.
+2. [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This code file creates inpatient admission data that we subsequently use to calculate the share of pediatric procedures per hospital. The data created from this file include all admissions, regardless of procedure. This file exports "ipadmits" datasets for each year.
 
 
 
 ## Build analytic data
-We follow several steps to clean the resulting HCCI claims data and merge additional variables, as describe below:
+We follow several steps to clean the resulting HCCI claims data and merge additional variables, as described below:
 
-1. [Final Data](data-code/stata-build/FinalData.do): Create our final inpatient and outpatient claims files, which we subsequently import into R for analysis.
 
-2. [Inpatient Data](data-code/stata-build/_AdmitsIP.do): 
+1. [Total Admissions](data-code/stata-build/_AdmitsIP.do) Create a dataset of total inpatient admissions for each hospital, "TotalHospitalAdmits.dta". The file calls the following individual code files.
+
+  a. [Admits NPI](data-code/stata-build/A1_AdmitsNPI.do) Drops observations with missing encrypted NPIs from [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This file exports a temporary "ipadmits" file for each year.
+  
+  b. **AHA Match** Find matching hospitals between AHA and HCCI data. This file requires some manual adjustments that may allow individual hospitals to be identified from the code. As such, the underlying code file cannot be posted or shared. Please feel free to contact me for more details. This file uses the "ipadmits" temporary data from the prior step, merges encrypted hospital IDs from HCCI, and exports a set of temporary datasets, "IPAdmits_AHA_2010"-"IPAdmits_AHA_2015".
+  
+  c. [Unique Admits](data-code/stata-build/A3_UniqueAdmits.do) Final data wrangling of the "IPAdmits_AHA" files, dropping duplicate admits and other admissions with missing or questionable diagnosis codes. Exports a set of temporary files for each year, "CleanAdmits10" - "CleanAdmits15".
+  
+
+2. [Inpatient Claims](data-code/stata-build/_ClaimsIP.do) Creates a dataset of all inpatient claims and identifies relevant pediatric procedures. Exports the claims data file, "FinalInpatientData.dta". The file calls the following individual code files.
+
+  a. [IP Claims Step 1](data-code/stata-build/ClaimsIP1_AdmitsNPI.do) Initial cleanup of the claims files created from [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas), where we drop observations with missing NPIs and irrelevant bill types. Exports a set of temporary "ipclaims" files for each year.
+  
+  b. **IP Claims Step 2** Find matching hospitals between AHA and HCCI data. This file requires manual adjustments that may facilitate the identification of individual hospitals and is therefore omitted. The file uses "ipclaims" from step a and exports a set of temporary datasets, "IPClaims_AHA_2010" - "IPClaims_AHA_2015". The file also exports a crosswalk file used to better match outpatient facilities to inpatient (encrypted) NPIs.
+  
+  c. [IP Claims Step 3](data-code/stata-build/ClaimsIP3_UniqueAdmits.do) Clean "IPClaims_AHA" files from step b and collapse to admit level. Exports "CleanClaims10" - "CleanClaims15" data files.
+  
+  d. [IP Claims Step 4](data-code/stata-build/ClaimsIP4_DRG_LatLong.do) Incorporate drg weight information and the latitude and longitude based on centroid of patient and hospital zip codes. Uses the "CleanClaims" files from step c and exports "Inpatient_Analysis10" - "Inpatient_Analysis15" data files.
+  
+  e. [IP Claims Step 5](data-code/stata-build/ClaimsIP5_Distance.do) Calculate the distance between patient zip code centroid and hospital zip code centroid. Exports a temporary "HospDistance" file for each year.
+  
+  f. [IP Claims Step 6](data-code/stata-build/ClaimsIP6_Prices.do) Uses the "Inpatient_Analysis" files from step d, merges the distance from step e, drops outliers and transfers, and creates final negotiated price variables. Exports "FinalInpatientData_2010" - "FinalInpatientData_2015".
+
+3. [Outpatient Claims](data-code/stata-build/_ClaimsOP.do)
+
+4. [Hospital Data](data-code/stata-build/_HospitalData.do)
+
+5. [Final Claims Data](data-code/stata-build/_FinalData.do): Create our final inpatient and outpatient claims files, which we subsequently import into R for analysis.
+
+6. [Choice Sets](data-code/stata-build/_ChoiceSets.do)

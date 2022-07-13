@@ -3,8 +3,8 @@ Description: This file merges DRG weights into the collapsed claims data, as wel
 	longitude and latitude for the patient and the hospital.
 */
 
-global OTHER_TEMP = "K:\Research\Raval_Emory\Cost shifting\Data\Temp"
-global OTHER_INPUT = "K:\Research\Raval_Emory\Cost shifting\Data\Input"
+global OTHER_TEMP = "...Temp"
+global OTHER_INPUT = "...Input"
 
 clear
 save "${TEMP}\CMS DRG wts.dta", replace emptyok

@@ -1,6 +1,6 @@
 *****************************************************************************
 ** Description: 				Calculate Total Inpatient Stays for each Hospital
-** Author: 						Ian McCarthy
+** Author: 						  Ian McCarthy
 ** Date Edited:					10/16/18
 *****************************************************************************
 clear
@@ -24,9 +24,8 @@ log using "$LOGS\IPAdmits_`date'.log", replace
 
 *****************************************************************************
 ** Generate claims/ip files
-foreach i in 01 02 03 {
-	do "${CODE}\IPAdmits_`i'.do"
-}
+do "${CODE}\A1_AdmitsNPI.do"
+do "${CODE}\A3_UniqueAdmits.do"
 
 *****************************************************************************
 *Collapse Admits to Hospital Level*
