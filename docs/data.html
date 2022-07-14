@@ -289,7 +289,12 @@ information about hospitals and hospital systems from the American
 Hospital Association (AHA) annual surveys, the Hospital Cost Report
 Information System (HCRIS), and market-level data from the American
 Community Survey (ACS). Our main data and relevant code files are
-discussed in more detail in the subsequent sections.</p>
+discussed in more detail in the subsequent sections. While we provide
+almost all of our code files below, note that the data extraction,
+wrangling, and analyses were all performed via a secure remote desktop.
+Exporting the files required some manual code adjustments, and we are
+therefore unable to provide a complete set of replication files that one
+could directly run against the raw data.</p>
 <div id="local-data-merged-to-hcci" class="section level2">
 <h2>Local Data Merged to HCCI</h2>
 <p>Due to restrictions on identifying hospital information, we first
@@ -424,6 +429,27 @@ Data</a>. Takes as inputs the IPClaims_AHA and OPClaims_AHA files,
 merges external hospital data from the Local Data section above, and
 exports a final hospital-level dataset,
 “AHA_ConsolidatedNPI_Data.dta.”</p></li>
+<li><p><strong>Quality Data.</strong> We calculate complication and
+readmission rates, separately for outpatient and inpatient visits. The
+<a href="data-code/stata-build/_QualityIP.do">Inpatient Quality</a>
+calls the <a
+href="data-code/stata-build/QIP1_Complications.do">Inpatient
+Complications</a> and <a
+href="data-code/stata-build/QIP2_Readmissions.do">Inpatient
+Readmissions</a> files, and the analogous <a
+href="data-code/stata-build/_QualityOP.do">Outpatient Quality</a> calls
+the <a href="data-code/stata-build/QOP1_Complications.do">Outpatient
+Complications</a> and <a
+href="data-code/stata-build/QOP2_Readmissions.do">Outpatient
+Readmissions</a> files. Exports “QualityData_IP.dta” and
+“QualityData_OP.dta” datasets. Readmissions capture any inpatient
+readmission within 90 days of a given procedure, and complications
+capture a large set of clinicaly relevent complications for our selected
+procedures. See the individual complications code files for the list of
+codes to identify each complication. These codes are also listed in a
+more reader-friendly way in the <a
+href="papers/specialization/jhe-appendix-202207.pdf">supplemental
+appendix</a>.</p></li>
 <li><p><a href="data-code/stata-build/_FinalData.do">Final Claims
 Data</a>. Create our final inpatient and outpatient claims files, which
 we subsequently import into R for analysis. This file incorporates the
@@ -434,12 +460,15 @@ href="data-code/stata-build/Pediatric_Index.do">Pediatric CCC Code</a>
 to calculate the pediatric comorbidities index. The file exports two
 datasets: “FinalData.txt” and “FinalData_All.txt”. The first is a subset
 of the second, consisting only of the 13 routine pediatric procedures of
-interest. The larger dataset is used to construct a starting point for
-full hospital choice sets that include all hospitals that saw a
-pediatric patient in a given year, rather than limited to only selected
-pediatric procedures.</p></li>
-<li><p><a href="data-code/stata-build/_ChoiceSets.do">Choice
-Sets</a>.</p></li>
+interest. The final version of the paper only uses the “FinalData.txt”
+data.</p></li>
+<li><p><a href="data-code/stata-build/_ChoiceSets.do">Choice Sets</a>.
+This file constructs the set of all hospitals for discrete choice
+modeling. Like the final claims data, this file creates two choice sets,
+one based on all hospitals treating any pediatric patients and one based
+only on hospitals treating pediatric patients for one of the selected
+routine procedures. The narrower choice set is employed in the final
+version of the paper.</p></li>
 </ol>
 </div>
 
