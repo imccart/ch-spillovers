@@ -25,9 +25,9 @@ This paper summarizes commercial insurance payments for a set of relatively comm
 
 "Price Spillovers for Multi-product Firms: The Case of Specialty Hospitals" with M. Raval, Working Paper <br>
 
-<a href=ch-spillovers/papers/specialization/jhe-paper-202207.pdf><i class="fas fa-download"> **Download Working Paper**</i></a><br>
+<a href=papers/specialization/jhe-paper-202207.pdf><i class="fas fa-download"> **Download Working Paper**</i></a><br>
 
-<a href=ch-spillovers/papers/specialization/jhe-appendix-202207.pdf><i class="fas fa-download"> **Download Supplemental Appendix**</i></a><br>
+<a href=papers/specialization/jhe-appendix-202207.pdf><i class="fas fa-download"> **Download Supplemental Appendix**</i></a><br>
 
 
 This paper attempts to understand *how* Children's Hospitals are able to negotiate such higher commercial payment rates even for routine procedures for which non-Children's Hospitals appear to provide comparable quality. We consider an "umbrella" or "differentiation" effect, which describes a situation in which, due to perceived quality differences or perhaps due to other non-clinical amenities, Children's Hospitals are essentially isolated from competition from non-Children's Hospitals. 
