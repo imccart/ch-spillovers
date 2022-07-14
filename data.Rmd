@@ -37,26 +37,26 @@ We follow several steps to clean the resulting HCCI claims data and merge additi
 
 1. [Total Admissions](data-code/stata-build/_AdmitsIP.do) Create a dataset of total inpatient admissions for each hospital, "TotalHospitalAdmits.dta". The file calls the following individual code files.
 
-  a. [Admits NPI](data-code/stata-build/A1_AdmitsNPI.do) Drops observations with missing encrypted NPIs from [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This file exports a temporary "ipadmits" file for each year.
+    a. [Admits NPI](data-code/stata-build/A1_AdmitsNPI.do) Drops observations with missing encrypted NPIs from [HCCI Data Part 2](data-code/sas-build/_HCCI_02.sas). This file exports a temporary "ipadmits" file for each year.
   
-  b. **AHA Match** Find matching hospitals between AHA and HCCI data. This file requires some manual adjustments that may allow individual hospitals to be identified from the code. As such, the underlying code file cannot be posted or shared. Please feel free to contact me for more details. This file uses the "ipadmits" temporary data from the prior step, merges encrypted hospital IDs from HCCI, and exports a set of temporary datasets, "IPAdmits_AHA_2010"-"IPAdmits_AHA_2015".
+    b. **AHA Match** Find matching hospitals between AHA and HCCI data. This file requires some manual adjustments that may allow individual hospitals to be identified from the code. As such, the underlying code file cannot be posted or shared. Please feel free to contact me for more details. This file uses the "ipadmits" temporary data from the prior step, merges encrypted hospital IDs from HCCI, and exports a set of temporary datasets, "IPAdmits_AHA_2010"-"IPAdmits_AHA_2015".
   
-  c. [Unique Admits](data-code/stata-build/A3_UniqueAdmits.do) Final data wrangling of the "IPAdmits_AHA" files, dropping duplicate admits and other admissions with missing or questionable diagnosis codes. Exports a set of temporary files for each year, "CleanAdmits10" - "CleanAdmits15".
+    c. [Unique Admits](data-code/stata-build/A3_UniqueAdmits.do) Final data wrangling of the "IPAdmits_AHA" files, dropping duplicate admits and other admissions with missing or questionable diagnosis codes. Exports a set of temporary files for each year, "CleanAdmits10" - "CleanAdmits15".
   
 
 2. [Inpatient Claims](data-code/stata-build/_ClaimsIP.do) Creates a dataset of all inpatient claims and identifies relevant pediatric procedures. Exports the claims data file, "FinalInpatientData.dta". The file calls the following individual code files.
 
-  a. [IP Claims Step 1](data-code/stata-build/ClaimsIP1_AdmitsNPI.do) Initial cleanup of the claims files created from [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas), where we drop observations with missing NPIs and irrelevant bill types. Exports a set of temporary "ipclaims" files for each year.
+    a. [IP Claims Step 1](data-code/stata-build/ClaimsIP1_AdmitsNPI.do) Initial cleanup of the claims files created from [HCCI Data Part 1](data-code/sas-build/_HCCI_01.sas), where we drop observations with missing NPIs and irrelevant bill types. Exports a set of temporary "ipclaims" files for each year.
   
-  b. **IP Claims Step 2** Find matching hospitals between AHA and HCCI data. This file requires manual adjustments that may facilitate the identification of individual hospitals and is therefore omitted. The file uses "ipclaims" from step a and exports a set of temporary datasets, "IPClaims_AHA_2010" - "IPClaims_AHA_2015". The file also exports a crosswalk file used to better match outpatient facilities to inpatient (encrypted) NPIs.
+    b. **IP Claims Step 2** Find matching hospitals between AHA and HCCI data. This file requires manual adjustments that may facilitate the identification of individual hospitals and is therefore omitted. The file uses "ipclaims" from step a and exports a set of temporary datasets, "IPClaims_AHA_2010" - "IPClaims_AHA_2015". The file also exports a crosswalk file used to better match outpatient facilities to inpatient (encrypted) NPIs.
   
-  c. [IP Claims Step 3](data-code/stata-build/ClaimsIP3_UniqueAdmits.do) Clean "IPClaims_AHA" files from step b and collapse to admit level. Exports "CleanClaims10" - "CleanClaims15" data files.
+    c. [IP Claims Step 3](data-code/stata-build/ClaimsIP3_UniqueAdmits.do) Clean "IPClaims_AHA" files from step b and collapse to admit level. Exports "CleanClaims10" - "CleanClaims15" data files.
   
-  d. [IP Claims Step 4](data-code/stata-build/ClaimsIP4_DRG_LatLong.do) Incorporate drg weight information and the latitude and longitude based on centroid of patient and hospital zip codes. Uses the "CleanClaims" files from step c and exports "Inpatient_Analysis10" - "Inpatient_Analysis15" data files.
+    d. [IP Claims Step 4](data-code/stata-build/ClaimsIP4_DRG_LatLong.do) Incorporate drg weight information and the latitude and longitude based on centroid of patient and hospital zip codes. Uses the "CleanClaims" files from step c and exports "Inpatient_Analysis10" - "Inpatient_Analysis15" data files.
   
-  e. [IP Claims Step 5](data-code/stata-build/ClaimsIP5_Distance.do) Calculate the distance between patient zip code centroid and hospital zip code centroid. Exports a temporary "HospDistance" file for each year.
+    e. [IP Claims Step 5](data-code/stata-build/ClaimsIP5_Distance.do) Calculate the distance between patient zip code centroid and hospital zip code centroid. Exports a temporary "HospDistance" file for each year.
   
-  f. [IP Claims Step 6](data-code/stata-build/ClaimsIP6_Prices.do) Uses the "Inpatient_Analysis" files from step d, merges the distance from step e, drops outliers and transfers, and creates final negotiated price variables. Exports "FinalInpatientData_2010" - "FinalInpatientData_2015".
+    f. [IP Claims Step 6](data-code/stata-build/ClaimsIP6_Prices.do) Uses the "Inpatient_Analysis" files from step d, merges the distance from step e, drops outliers and transfers, and creates final negotiated price variables. Exports "FinalInpatientData_2010" - "FinalInpatientData_2015".
 
 3. [Outpatient Claims](data-code/stata-build/_ClaimsOP.do) Mirros the analysis of inpatient claims but for outpatient data. As with the inpatient claims, there are 6 individual code files to process the outpatient claims data. Exports the claims data file, "FinalOutpatientData.dta". 
 

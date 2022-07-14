@@ -354,11 +354,10 @@ This file exports “ipadmits” datasets for each year.</p></li>
 <p>We follow several steps to clean the resulting HCCI claims data and
 merge additional variables, as described below:</p>
 <ol style="list-style-type: decimal">
-<li><a href="data-code/stata-build/_AdmitsIP.do">Total Admissions</a>
+<li><p><a href="data-code/stata-build/_AdmitsIP.do">Total Admissions</a>
 Create a dataset of total inpatient admissions for each hospital,
 “TotalHospitalAdmits.dta”. The file calls the following individual code
-files.</li>
-</ol>
+files.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><a href="data-code/stata-build/A1_AdmitsNPI.do">Admits NPI</a>
 Drops observations with missing encrypted NPIs from <a
@@ -377,14 +376,12 @@ Admits</a> Final data wrangling of the “IPAdmits_AHA” files, dropping
 duplicate admits and other admissions with missing or questionable
 diagnosis codes. Exports a set of temporary files for each year,
 “CleanAdmits10” - “CleanAdmits15”.</p></li>
-</ol>
-<ol start="2" style="list-style-type: decimal">
-<li><a href="data-code/stata-build/_ClaimsIP.do">Inpatient Claims</a>
+</ol></li>
+<li><p><a href="data-code/stata-build/_ClaimsIP.do">Inpatient Claims</a>
 Creates a dataset of all inpatient claims and identifies relevant
 pediatric procedures. Exports the claims data file,
 “FinalInpatientData.dta”. The file calls the following individual code
-files.</li>
-</ol>
+files.</p>
 <ol style="list-style-type: lower-alpha">
 <li><p><a href="data-code/stata-build/ClaimsIP1_AdmitsNPI.do">IP Claims
 Step 1</a> Initial cleanup of the claims files created from <a
@@ -416,8 +413,7 @@ Step 6</a> Uses the “Inpatient_Analysis” files from step d, merges the
 distance from step e, drops outliers and transfers, and creates final
 negotiated price variables. Exports “FinalInpatientData_2010” -
 “FinalInpatientData_2015”.</p></li>
-</ol>
-<ol start="3" style="list-style-type: decimal">
+</ol></li>
 <li><p><a href="data-code/stata-build/_ClaimsOP.do">Outpatient
 Claims</a> Mirros the analysis of inpatient claims but for outpatient
 data. As with the inpatient claims, there are 6 individual code files to
