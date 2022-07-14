@@ -22,7 +22,7 @@ exp.util <- bind_rows(exp.util.ip, exp.util.op)
 final.wtp <- exp.util %>%
   dplyr::select(aha_hnpi, Year, wtp) %>%
   group_by(aha_hnpi, Year) %>%
-  summarize(total_wtp=sum(wtp,na.rm=TRUE))
+  summarize(total_wtp=mean(wtp,na.rm=TRUE))
   
 final.wtp <- final.wtp %>%
   left_join(hosp.only, by=c("aha_hnpi", "Year")) %>%

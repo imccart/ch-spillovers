@@ -2,4 +2,23 @@
 title: "Analysis"
 ---
 
-Stay tuned for supplementary materials on our analysis...
+All analysis was performed through a secure remote desktop using R. Below, we separate our files into functions and other code files. The functions are stand-along and called by different individual code files. All files are called by the [Main Analysis](analysis/_main.R) file.
+
+## Functions
+
+1. [Discrete Choice](analysis/fn_logit_model.R).
+
+2. [Bootstrap Standard Errors](analysis/fn_choice_reg_bs.R).
+
+
+## Analysis Files
+
+1. [Summary Statistics](analysis/summary_stats.R).
+
+2. [Discrete Choice](analysis/choice_reg_year.R).
+
+    a. [Inpatient Choice Data](analysis/choice_reg_ip.R).
+    
+    b. [Outpatient Choice Data](analysis/choice_reg_op.R).
+    
+3. [Differentiation](analysis/differentiation.R). 
