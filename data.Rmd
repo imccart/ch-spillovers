@@ -58,7 +58,7 @@ We follow several steps to clean the resulting HCCI claims data and merge additi
   
   f. [IP Claims Step 6](data-code/stata-build/ClaimsIP6_Prices.do) Uses the "Inpatient_Analysis" files from step d, merges the distance from step e, drops outliers and transfers, and creates final negotiated price variables. Exports "FinalInpatientData_2010" - "FinalInpatientData_2015".
 
-3. [Outpatient Claims](data-code/stata-build/_ClaimsOP.do)
+3. [Outpatient Claims](data-code/stata-build/_ClaimsOP.do) Mirros the analysis of inpatient claims but for outpatient data. As with the inpatient claims, there are 6 individual code files to process the outpatient claims data. Exports the claims data file, "FinalOutpatientData.dta". 
 
 4. [Hospital Data](data-code/stata-build/_HospitalData.do)
 
