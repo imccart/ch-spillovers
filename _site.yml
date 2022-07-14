@@ -1,8 +1,4 @@
 name: "ch-spillovers"
-include:
-  - "_*.do"
-  - "_HospitalData.do"
-  - "_*.R"
 output_dir: docs
 exclude: ["data"]
 navbar:
