@@ -168,8 +168,7 @@ forvalues t=2009/2015 {
 }
 
 ** Fix year data
-gen FYear=year(FISYR)
-replace FYear=AHAYEAR if FYear==.
+gen FYear=AHAYEAR
 
 ** Hospital Characteristics
 gen Own_Type=inrange(CNTRL,12,16) + 2*inrange(CNTRL,21,23) + 3*inrange(CNTRL,30,33) + 4*inrange(CNTRL,41,48)

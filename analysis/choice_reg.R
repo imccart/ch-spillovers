@@ -14,11 +14,6 @@ exp.util.op <- dchoice.est(data=op.choice.reg)$pred
 
 exp.util <- bind_rows(exp.util.ip, exp.util.op)
   
-# form ex ante WTP by summing across all patients and all conditions.
-# note: this is the same as a probabalistic approach if we use market-based
-# probabilities and patient counts...
-# i.e., if xbar1 = (1/N1) * sum(x1), xbar2 = (1/N2) * sum(x2)
-# N*(p1*xbar1 + p2*xbar2) = N1*xbar1 + N2*xbar2 = sum(x1) + sum(x2) = sum(wtp)
 final.wtp <- exp.util %>%
   dplyr::select(aha_hnpi, Year, wtp) %>%
   group_by(aha_hnpi, Year) %>%
