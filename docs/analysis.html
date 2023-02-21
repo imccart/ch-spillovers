@@ -13,7 +13,7 @@
 
 <title>Analysis</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
@@ -143,11 +143,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -285,31 +289,54 @@ $(document).ready(function () {
 
 <p>All analysis was performed through a secure remote desktop using R.
 Below, we separate our files into functions and other code files. The
-functions are stand-along and called by different individual code files.
+functions are stand-alone and called by different individual code files.
 All files are called by the <a href="analysis/_main.R">Main Analysis</a>
 file.</p>
 <div id="functions" class="section level2">
 <h2>Functions</h2>
 <ol style="list-style-type: decimal">
-<li><p><a href="analysis/fn_logit_model.R">Discrete Choice</a>.</p></li>
+<li><p><a href="analysis/fn_logit_model.R">Discrete Choice</a>. This
+function estimates the multinomial logit model for patient selection of
+hospitals in their market for their procedure.</p></li>
 <li><p><a href="analysis/fn_choice_reg_bs.R">Bootstrap Standard
-Errors</a>.</p></li>
+Errors</a>. This function calculates bootstrapped standard errors for
+the multinomial logit model.</p></li>
 </ol>
 </div>
 <div id="analysis-files" class="section level2">
 <h2>Analysis Files</h2>
 <ol style="list-style-type: decimal">
-<li><p><a href="analysis/summary_stats.R">Summary
-Statistics</a>.</p></li>
-<li><p><a href="analysis/choice_reg_year.R">Discrete Choice</a>.</p>
-<ol style="list-style-type: lower-alpha">
-<li><p><a href="analysis/choice_reg_ip.R">Inpatient Choice
-Data</a>.</p></li>
-<li><p><a href="analysis/choice_reg_op.R">Outpatient Choice
-Data</a>.</p></li>
-</ol></li>
-<li><p><a
-href="analysis/differentiation.R">Differentiation</a>.</p></li>
+<li><p><a href="analysis/summary_stats.R">Summary Statistics</a>. Form
+tables of descriptive stats on CH vs. Non-CH hospitals.</p></li>
+<li><p><a href="analysis/choice_reg_year.R">Discrete Choice</a>. The
+purpose of this file is to calculate the willingness to pay for CH
+versus NCH. To do this, we estimate the choice model in each year,
+calling the logit model function above. We do this separately by year
+and within different care settings. The <a
+href="analysis/choice_reg_ip.R">inpatient</a> file estimates discrete
+choice models for inpatient stays and the <a
+href="analysis/choice_reg_op.R">outpatient</a> file estimates discrete
+choice models for outpatient stays. The IP/OP settings involve very
+different procedures (e.g., spinal surgery or appendectomy versus
+adenoidectomy), so we split the analysis accordingly. We then summarize
+the results in terms of willingness to pay for a hospital.</p></li>
+<li><p><a href="analysis/differentiation.R">Differentiation</a>. Here,
+we identify entrants (as described in the text) and estimate the effects
+of entry of a CH (NCH) on prices among CH (NCH), and vice versa. We
+consider several different estimators, including that of Sun and Abraham
+as well as Callaway and Sant’Anna. We also consider different thresholds
+for identifying an entrant, with one analysis imposing <a
+href="analysis/differentiation_5claims.R">a minimum of 5 claims</a> for
+a new entrant and another analysis requiring <a
+href="analysis/differentiation_10claims.R">a minimum of 10
+claims</a>.</p></li>
+<li><p><a href="analysis/bargaining.R">Bargaining</a>. An alternative
+explanation for higher prices among CH versus NCH is that CH are able to
+negotiate higher prices for common procedures due to their near-monopoly
+power on other, more specialized procedures. This code file considers
+this alternative explanation empirically by estimate the effects of
+changes in competition specifically among highly specialized
+procedures.</p></li>
 </ol>
 </div>
 
