@@ -1,6 +1,6 @@
 # Children's Hospitals and Health Care Specialization
 
-This repo maintains the supporting documentation and supplementary material for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals.
+This repo maintains the supporting documentation and supplementary material for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals. Details of our dataset construction are [here](data), details of our analysis are [here](analysis), papers are available [here](papers), and presentations [here](present).
 
 ---------------------------------------------------------------------------------------
 
