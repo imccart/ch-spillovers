@@ -1,6 +1,6 @@
 # Children's Hospitals and Health Care Specialization
 
-This repo maintains the supporting documentation and supplementary material for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals. Access all the slides and additional resources as part of the companion site [here](https://ch-spillovers.research.ianmccarthyecon.com). 
+This repo maintains the supporting documentation and supplementary material for our projects examining the role of specialization in health care, specifically with regard to Children's Hospitals.
 
 ---------------------------------------------------------------------------------------
 
