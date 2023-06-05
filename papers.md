@@ -1,6 +1,4 @@
----
-title: "Papers"
----
+# Papers
 
 This project involved a few different papers, each building off of each other in some way. These papers are listed and described below.
 

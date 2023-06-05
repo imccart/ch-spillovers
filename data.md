@@ -1,3 +1,5 @@
+# Data
+
 Our main data for this project come from the Health Care Cost Institute (HCCI, version 1.0), and we supplement these data with information about hospitals and hospital systems from the American Hospital Association (AHA) annual surveys, the Hospital Cost Report Information System (HCRIS), and market-level data from the American Community Survey (ACS). Our main data and relevant code files are discussed in more detail in the subsequent sections. While we provide almost all of our code files below, note that the data extraction, wrangling, and analyses were all performed via a secure remote desktop. Exporting the files required some manual code adjustments, and we are therefore unable to provide a complete set of replication files that one could directly run against the raw data. 
 
 ## Local Data Merged to HCCI

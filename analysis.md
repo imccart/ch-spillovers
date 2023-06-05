@@ -1,6 +1,4 @@
----
-title: "Analysis"
----
+# Analysis
 
 All analysis was performed through a secure remote desktop using R. Below, we separate our files into functions and other code files. The functions are stand-alone and called by different individual code files. All files are called by the [Main Analysis](analysis/_main.R) file.
 
